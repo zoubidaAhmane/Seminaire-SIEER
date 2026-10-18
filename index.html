@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEER 2027 - Séminaire International sur l'Energétique et les Energies Renouvelables</title>
+    <style>
+        :root {
+            --primary-color: #0b4f6c;
+            --secondary-color: #00b4d8;
+            --accent-color: #f77f00;
+            --btn-article-color: #0096c7;
+            --light-bg: rgba(255, 255, 255, 0.82);
+            --dark-text: #222222;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: #f0f4f8;
+        }
+        header {
+            background: linear-gradient(rgba(11, 79, 108, 0.85), rgba(1, 186, 239, 0.75)), url('d.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .header-top {
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            gap: 20px;
+        }
+        .logo-left, .logo-right {
+            flex: 0 0 120px;
+            text-align: center;
+        }
+        .logo-left img, .logo-right img, .extra-logo img {
+            max-width: 110px;
+            height: auto;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .header-institutional {
+            flex: 1;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+        .republique-text {
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+        .univ-text {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .fac-text {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        .lab-text {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+        .header-main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+        .organisent-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 15px 0 8px 0;
+            letter-spacing: 2px;
+        }
+        .seminaire-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 10px 0;
+            line-height: 1.3;
+        }
+        .orange-letter {
+            color: #ff9f1c;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .seminaire-dates {
+            font-size: 1.25rem;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .extra-logo {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .cta-buttons {
+            margin-top: 25px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #d66f00;
+        }
+        .btn-article {
+            background-color: var(--btn-article-color);
+        }
+        .btn-article:hover {
+            background-color: #0077b6;
+        }
+        nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        nav a:hover {
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+        section {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 50px 30px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        #preambule { background-image: url('d.png'); }
+        #batna-gallery { background-image: url('f.png'); }
+        #thematiques { background-image: url('e.png'); }
+        #comites { background-image: url('f.png'); }
+        #dates, #tarifs { background-image: url('d.png'); }
+        #publication, #contacts { background-image: url('e.png'); }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* Galerie de Batna */
+        .batna-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .batna-img-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .batna-img-card:hover {
+            transform: translateY(-5px);
+        }
+        .batna-img-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .batna-img-card p {
+            padding: 12px;
+            margin: 0;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.92);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .committee-item {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-bottom: 2px solid #ddd;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .journals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .journal-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .journal-card img {
+            max-width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .journal-card h3 {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-left">
+                <img src="im1.png" alt="Logo Université Batna 1">
+            </div>
+            
+            <div class="header-institutional">
+                <div class="republique-text">République Algérienne Démocratique et Populaire</div>
+                <div class="republique-text">Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</div>
+                <div class="univ-text">Université Batna 1</div>
+                <div class="fac-text">Faculté des Sciences de la Matière</div>
+                <div class="fac-text">Département de Physique</div>
+                <div class="lab-text">Laboratoire de Physique Énergétique Appliquée (LPEA)</div>
+            </div>
+
+            <div class="logo-right">
+                <img src="im2.png" alt="Logo Labo LPEA">
+            </div>
+        </div>
+
+        <div class="header-main-content">
+            <div class="organisent-text">Organisent</div>
+            
+            <div class="seminaire-title">
+                <span class="orange-letter">S</span>éminaire 
+                <span class="orange-letter">I</span>nternational 
+                sur 
+                l'<span class="orange-letter">E</span>nergétique 
+                et les 
+                <span class="orange-letter">E</span>nergies 
+                <span class="orange-letter">R</span>enouvelables
+            </div>
+            
+            <div class="seminaire-dates">22-23 Avril 2027</div>
+
+            <div class="extra-logo">
+                <img src="im3.png" alt="Logo SIEER 2027">
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeDVyjY9I78H9cgBoPP7d0Njhz_FRMOrw2qGEDieQclR4NtjA/viewform?usp=publish-editor" target="_blank" class="btn">Soumettre un Résumé</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeDVyjY9I78H9cgBoPP7d0Njhz_FRMOrw2qGEDieQclR4NtjA/viewform?usp=publish-editor" target="_blank" class="btn btn-article">Soumettre un Article</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#preambule">Préambule</a>
+        <a href="#batna-gallery">Découvrir Batna</a>
+        <a href="#thematiques">Thématiques</a>
+        <a href="#comites">Comités</a>
+        <a href="#dates">Dates Clés</a>
+        <a href="#tarifs">Frais</a>
+        <a href="#publication">Publications</a>
+        <a href="#contacts">Contacts</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- PREAMBULE -->
+        <section id="preambule">
+            <h2>Préambule</h2>
+            <p>L'objectif principal de cette conférence est de créer un espace de rencontre et de discussion pour les universitaires et les chercheurs travaillant sur diverses thématiques liées à l'énergétique et aux énergies renouvelables. L'événement vise à favoriser la collaboration et l'échange d'idées autour des nouvelles avancées scientifiques et des innovations technologiques dans ces domaines cruciaux.</p>
+            <p>Organisé par la <strong>Faculté des Sciences de la Matière</strong>, le <strong>Département de Physique</strong> et le <strong>Laboratoire de Physique Énergétique Appliquée (LPEA)</strong> de l'Université Batna 1.</p>
+        </section>
+
+        <!-- DECOUVRIR BATNA (Galerie Photos) -->
+        <section id="batna-gallery">
+            <h2>Découvrir Batna et ses Richesses</h2>
+            <p>Située dans la magnifique région des Aurès, Batna vous accueille avec son patrimoine historique unique, ses vestiges antiques et ses paysages spectaculaires.</p>
+            
+            <div class="batna-grid">
+                <div class="batna-img-card">
+                    <img src="batna1.png" alt="Medracen Batna">
+                    <p>Le Mausolée Royal Numide (Medracen)</p>
+                </div>
+                <div class="batna-img-card">
+                    <img src="batna2.png" alt="Architecture à Batna">
+                    <p>Architecture et Centre-Ville</p>
+                </div>
+                <div class="batna-img-card">
+                    <img src="batna3.png" alt="Vestiges Historiques">
+                    <p>Vestiges Historiques des Aurès</p>
+                </div>
+                <div class="batna-img-card">
+                    <img src="batna4.png" alt="Mosaique Historique">
+                    <p>Art et Mosaïques Antiques</p>
+                </div>
+                <div class="batna-img-card">
+                    <img src="batna5.png" alt="Site Romain de Timgad">
+                    <p>Le Site Archéologique Romain de Timgad</p>
+                </div>
+                <div class="batna-img-card">
+                    <img src="batna6.png" alt="Mosquée 1er Novembre Batna">
+                    <p>La Mosquée 1er Novembre</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THEMATIQUES -->
+        <section id="thematiques">
+            <h2>Thématiques du Séminaire</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Énergies Renouvelables</h3>
+                    <ul>
+                        <li>Énergie Solaire, Éolienne, Hydraulique, Géothermique</li>
+                        <li>Biomasse et Biogaz</li>
+                        <li>Stockage de l'Énergie Renouvelable</li>
+                        <li>Économie et Politiques des Énergies Renouvelables</li>
+                        <li>Innovations Technologiques et Recherche</li>
+                        <li>Transition Énergétique : Défis et Solutions</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>2. Écoulements & Transferts thermiques</h3>
+                    <ul>
+                        <li>Dynamique et écoulement des fluides</li>
+                        <li>Machines Thermiques</li>
+                        <li>Transferts de chaleur et de masse</li>
+                        <li>Échangeurs de chaleur</li>
+                        <li>Thermique des bâtiments</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>3. Nano-fluides</h3>
+                    <ul>
+                        <li>Transfert thermique dans les Nano-fluides</li>
+                        <li>Caractérisation, modélisation et simulation des Nano-fluides</li>
+                        <li>Applications industrielles et médicales des Nano-fluides</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMITES -->
+        <section id="comites">
+            <h2>Organisation & Comités</h2>
+            
+            <div class="card" style="margin-bottom: 30px; border-left-color: var(--accent-color);">
+                <h3>Direction du Séminaire</h3>
+                <p><strong>Présidents d'Honneur :</strong><br>
+                Pr. Abdesslem DIF (Recteur de l'Université Batna 1)<br>
+                Pr. Hamada HABA (Doyen de la Faculté des Sciences de la Matière)</p>
+                
+                <p><strong>Président du Séminaire :</strong><br>
+                Pr. Azeddine SOUDANI (Directeur du Laboratoire de Physique Énergétique Appliquée - LPEA)</p>
+            </div>
+
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 5px;">Comité d'Organisation</h3>
+                <div class="committee-grid" style="margin-top: 15px;">
+                    <div class="committee-item"><strong>Pr. Djouimaa Sihem</strong> (Univ. Batna 1 - Présidente)</div>
+                    <div class="committee-item">Pr. Soudani Azeddine (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Adouane Belkacem (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Bougoul Saadi (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Guerraiche Djemaa (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Benmachiche A.M. Hakim (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Aouachria Zeroual (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Zereg Moussa (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Ferahta Fatima Zohra (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Noui Samira (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Belkacemi Zoubir (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Khazar Rafika (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Zeroual Samra (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Nezzar Djemaa (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Alioua Tarek (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Zereg Kacem (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Rahmoune Imene (Univ. Batna 1)</div>
+                    <div class="committee-item">Ouardhlent Fouzin (Ing. univ. Batna 1)</div>
+                    <div class="committee-item">Abdehafid Nadia (Ing. univ. Batna 1)</div>
+                    <div class="committee-item">Oudjchih Zouhir (Ing. univ. Batna 1)</div>
+                    <div class="committee-item">Ben Kherrour Assia (Univ. Batna 1)</div>
+                    <div class="committee-item">Tich Tich Slimane Mustapha (Univ. Batna 1)</div>
+                    <div class="committee-item">Diafi Halla (Univ. Batna 1)</div>
+                    <div class="committee-item">Ghodbane Nadhir (Univ. Batna 1)</div>
+                    <div class="committee-item">Dahmani Merzaka (Univ. Batna 1)</div>
+                    <div class="committee-item">Badi Mourad (Univ. Batna 1)</div>
+                    <div class="committee-item">Zeraib Faris (Univ. Batna 1)</div>
+                    <div class="committee-item">Hamza Rihab (Univ. Batna 1)</div>
+                    <div class="committee-item">Bouhantala Bigued (Univ. Batna 1)</div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 5px;">Comité Scientifique</h3>
+                <div class="committee-grid" style="margin-top: 15px;">
+                    <div class="committee-item"><strong>Pr. Bougoul Saadi</strong> (Univ. Batna 1 - Président)</div>
+                    <div class="committee-item">Pr. Soudani Azeddine (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Adouane Belkacem (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Djouimaa Sihem (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Aouachria Zeroual (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Zereg Moussa (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Benmachiche A.M. Hakim (Univ. Batna 1)</div>
+                    <div class="committee-item">Pr. Loreto Valenzuela Gutiérrez (PSA, Spain)</div>
+                    <div class="committee-item">Pr. Chamkha Ali J (CST, Kuwait)</div>
+                    <div class="committee-item">Pr. Adouane Mabrouk (BRC, Kuwait)</div>
+                    <div class="committee-item">Pr. Labaal Nadhir (UTB, France)</div>
+                    <div class="committee-item">Pr. Zied Driss (ENIS, Tunisie)</div>
+                    <div class="committee-item">Pr. Naifar Fahmi (ENIS, Tunisie)</div>
+                    <div class="committee-item">Pr. Baccar Mounir (ENIS, Tunisie)</div>
+                    <div class="committee-item">Dr. M'raoui Abdlhamid (CDER, Alger)</div>
+                    <div class="committee-item">Dr. Hadj Arab Amar (CDER, Alger)</div>
+                    <div class="committee-item">Dr. Touafek Khaled (URAER, Ghardaïa)</div>
+                    <div class="committee-item">Dr. Bezari Salah (URAER, Ghardaïa)</div>
+                    <div class="committee-item">Dr. Tahiri Ahmed (URERMES, Adrar)</div>
+                    <div class="committee-item">Dr. Djaafri Mohamed (URERMES, Adrar)</div>
+                    <div class="committee-item">Pr. Bouraiou Ahmed (URERMES, Adrar)</div>
+                    <div class="committee-item">Pr. Hamouda Messaoud (Univ. Adrar)</div>
+                    <div class="committee-item">Pr. Benramdane Mohamed (Univ. Tlemcen)</div>
+                    <div class="committee-item">Pr. Maache Mouna (Univ. Khenchela)</div>
+                    <div class="committee-item">Pr. Maameri Abdelbaki (U.O. Bouaghi)</div>
+                    <div class="committee-item">Dr. Hadef Amar (U.O. Bouaghi)</div>
+                    <div class="committee-item">Pr. Moumi Noureddine (Univ. Biskra)</div>
+                    <div class="committee-item">Pr. Moumi Abdelhafid (Univ. Biskra)</div>
+                    <div class="committee-item">Pr. Bouras Fethi (Univ. d'El Oued)</div>
+                    <div class="committee-item">Pr. Demagh Yassine (Univ. Batna 2)</div>
+                    <div class="committee-item">Dr. Messaoudi Laid (Univ. Batna 2)</div>
+                    <div class="committee-item">Pr. Brima Abdelhafid (Univ. Batna 2)</div>
+                    <div class="committee-item">Pr. Aksas Mounir (HNS-RE2SD)</div>
+                    <div class="committee-item">Pr. Khaldi Fouad (HNS-RE2SD)</div>
+                    <div class="committee-item">Dr. Ferahta Fatima Zohra (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Guerraiche Djemaa (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Zeroual Samra (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Nezzar Djemaa (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Khezzar Rafika (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Alioua Tarek (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Belkacemi Zoubir (Univ. Batna 1)</div>
+                    <div class="committee-item">Dr. Noui Samira (Univ. Batna 1)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DATES IMPORTANTES -->
+        <section id="dates">
+            <h2>Dates Importantes</h2>
+            <ul>
+                <li><strong>Date limite de soumission des résumés :</strong> 21 Janvier 2027</li>
+                <li><strong>Notification d'acceptation :</strong> 31 Janvier 2027</li>
+                <li><strong>Date du séminaire :</strong> 22 - 23 Avril 2027</li>
+            </ul>
+        </section>
+
+        <!-- FRAIS D'INSCRIPTION -->
+        <section id="tarifs">
+            <h2>Frais d'Inscription (sans hébergement)</h2>
+            <p>Les frais d'inscription couvrent le sac et les documents du séminaire, les pauses-café et les déjeuners pour 2 jours.</p>
+            <table>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Montant</th>
+                </tr>
+                <tr>
+                    <td>Doctorant</td>
+                    <td>6000 DA</td>
+                </tr>
+                <tr>
+                    <td>Enseignant-Chercheur</td>
+                    <td>10000 DA</td>
+                </tr>
+                <tr>
+                    <td>Industriel</td>
+                    <td>20000 DA</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section id="publication">
+            <h2>Publication des Articles</h2>
+            <p>Les articles acceptés et sélectionnés seront publiés dans l'un des trois journaux indexés dans Scopus et d'autres bases de données :</p>
+            
+            <div class="journals-grid">
+                <!-- Journal 1 -->
+                <div class="journal-card">
+                    <img src="a.png" alt="Journal of Renewable Energies">
+                    <h3>Journal of Renewable Energies (JRE)</h3>
+                </div>
+                <!-- Journal 2 -->
+                <div class="journal-card">
+                    <img src="c.png" alt="Algerian Journal of Renewable Energy and Sustainable Development">
+                    <h3>Algerian Journal of Renewable Energy and Sustainable Development (AJRESD)</h3>
+                </div>
+                <!-- Journal 3 -->
+                <div class="journal-card">
+                    <img src="b.png" alt="Algerian Journal of Engineering and Technology">
+                    <h3>Algerian Journal of Engineering and Technology (AJET)</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section id="contacts">
+            <h2>Contacts</h2>
+            <p>
+                <strong>Département de Physique, Université Batna -1</strong><br>
+                Route de Biskra Batna, 05000 Algérie<br>
+                <strong>Tél/Fax :</strong> +213 33 31 90 17<br>
+                <strong>Email :</strong> <a href="mailto:sieer2027@univ-batna.dz">sieer2027@univ-batna.dz</a> / <a href="mailto:lpea@univ-batna.dz">lpea@univ-batna.dz</a>
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2027 SIEER - Université Batna 1. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
